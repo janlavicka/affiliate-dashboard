@@ -1,0 +1,19 @@
+{
+  "name": "affiliate-dashboard",
+  "version": "1.0.0",
+  "description": "Affiliate dashboard build with Supabase as a backend",
+  "author": "Jan Lavička <iam@janlavicka.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "frontend"
+    ]
+  },
+  "scripts": {
+    "dev": "yarn --cwd frontend dev",
+    "lint": "yarn --cwd frontend lint",
+    "build": "yarn --cwd frontend build",
+    "start": "yarn --cwd frontend start"
+  }
+}
