@@ -17,4 +17,6 @@ function Page() {
 
 Page.getLayout = (page: any) => <Layout>{page}</Layout>;
 
+Page.isProtected = true;
+
 export default Page;
