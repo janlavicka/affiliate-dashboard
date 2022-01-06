@@ -5,7 +5,6 @@ import type { ReactElement, ReactNode } from "react";
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
-  isProtected?: boolean;
 };
 
 type AppPropsWithLayout = AppProps & {
@@ -13,7 +12,9 @@ type AppPropsWithLayout = AppProps & {
 };
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  return <Component {...pageProps} />;
+  const getLayout = Component.getLayout ?? ((page) => page);
+
+  return getLayout(<Component {...pageProps} />);
 }
 
 export default MyApp;
