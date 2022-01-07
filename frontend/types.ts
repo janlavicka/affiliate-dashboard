@@ -28,3 +28,21 @@ export type Commission = {
   created_at: string;
   campaign_id: string;
 };
+
+export type EhubCzCampaign = {
+  id: string;
+  name: string;
+  logoUrl: string;
+  web: string;
+  maxApprovalInterval: number;
+};
+
+export type EhubCzTransaction = {
+  id: string;
+  dateInserted: string;
+  campaignId: string;
+  commission: number;
+  amount: number;
+  status: "pre-approved" | "approved" | "pending" | "declined";
+  payoutStatus: "paid" | "unpaid";
+};
