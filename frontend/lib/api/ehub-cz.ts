@@ -1,3 +1,4 @@
+import { EhubCzApiTransactionParams, EhubCzApiCampaignParams } from "@/types";
 import axios from "axios";
 
 export default class EhubCzApi {
@@ -20,5 +21,29 @@ export default class EhubCzApi {
     } catch (error) {
       return false;
     }
+  }
+
+  async getCampaigns(
+    params: EhubCzApiCampaignParams = { perPage: 50, page: 1 },
+  ) {
+    const urlParams = Object.entries(params)
+      .map((kv) => kv.join("="))
+      .join("&");
+
+    return axios.get(
+      `https://api.ehub.cz/v3/publishers/${this.publisherId}/campaigns?apiKey=${this.apiKey}&${urlParams}`,
+    );
+  }
+
+  async getTransactions(
+    params: EhubCzApiTransactionParams = { perPage: 50, page: 1 },
+  ) {
+    const urlParams = Object.entries(params)
+      .map((kv) => kv.join("="))
+      .join("&");
+
+    return axios.get(
+      `https://api.ehub.cz/v3/publishers/${this.publisherId}/transactions?apiKey=${this.apiKey}&${urlParams}`,
+    );
   }
 }

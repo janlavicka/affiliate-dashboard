@@ -29,6 +29,11 @@ export type Commission = {
   campaign_id: string;
 };
 
+export type EhubCzCreditials = {
+  publisher_id: string;
+  api_key: string;
+};
+
 export type EhubCzCampaign = {
   id: string;
   name: string;
@@ -45,4 +50,16 @@ export type EhubCzTransaction = {
   amount: number;
   status: "pre-approved" | "approved" | "pending" | "declined";
   payoutStatus: "paid" | "unpaid";
+};
+
+export type EhubCzApiCampaignParams = {
+  page: number;
+  perPage: number;
+};
+
+export type EhubCzApiTransactionParams = {
+  sort?: string;
+  dateInsertedFrom?: string;
+  perPage: number;
+  page: number;
 };

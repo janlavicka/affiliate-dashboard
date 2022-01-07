@@ -1,16 +1,25 @@
 import { Connection } from "@/types";
+import axios from "axios";
 import { useState } from "react";
+import { useQueryClient } from "react-query";
 
 type Props = {
   connection: Connection;
 };
 
 export default function Item({ connection }: Props) {
+  const queryClient = useQueryClient();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleImport = async (id: string) => {
+    // request import
     setIsLoading(true);
+    await axios.post("/api/ehub-cz/import", { id });
     setIsLoading(false);
+
+    // refetch queries to get new data
+    queryClient.removeQueries("commissions");
+    queryClient.removeQueries("campaigns");
   };
 
   return (
