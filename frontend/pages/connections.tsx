@@ -1,12 +1,23 @@
-import Layout from "@/components/Layout";
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "@/components/Layout";
+import Spinner from "@/components/Spinner";
+import { Connection } from "@/types";
+import { useQuery } from "react-query";
+import Item from "@/components/connections/Item";
+import { getConnections } from "@/lib/queries";
 
 function Page() {
+  const { data: connections, isFetching } = useQuery<Connection[]>(
+    "connections",
+    getConnections,
+  );
+
   return (
     <>
       <Head>
         <title>Connections | Affiliate dashboard</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="container px-4 pt-10 pb-12 mx-auto sm:px-6 lg:px-8">
@@ -23,6 +34,19 @@ function Page() {
             </Link>
           </div>
         </div>
+
+        {!isFetching ? (
+          <ul
+            role="list"
+            className="border-gray-200 divide-y divide-gray-200 border-y"
+          >
+            {connections?.map((connection) => (
+              <Item connection={connection} key={connection.id} />
+            ))}
+          </ul>
+        ) : (
+          <Spinner />
+        )}
       </main>
     </>
   );
