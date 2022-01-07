@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         </Head>
-        <body>
+        <body className="min-h-screen font-sans text-base antialiased text-gray-900">
           <Main />
           <NextScript />
         </body>

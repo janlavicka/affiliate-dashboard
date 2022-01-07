@@ -8,8 +8,10 @@ function Page() {
         <title>Campaigns | Affiliate dashboard</title>
       </Head>
 
-      <main>
-        <h1>Campaigns</h1>
+      <main className="container px-4 pt-10 pb-12 mx-auto sm:px-6 lg:px-8">
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold">Campaigns</h1>
+        </div>
       </main>
     </>
   );
