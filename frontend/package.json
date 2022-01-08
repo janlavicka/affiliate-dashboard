@@ -20,6 +20,7 @@
     "@prisma/client": "^3.7.0",
     "@supabase/supabase-js": "^1.29.1",
     "axios": "^0.24.0",
+    "chart.js": "^3.7.0",
     "dayjs": "^1.10.7",
     "formik": "^2.2.9",
     "joi": "^17.5.0",
@@ -27,6 +28,7 @@
     "next-connect": "^0.11.0",
     "next-joi": "^2.2.1",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.0",
     "react-dom": "^17.0.2",
     "react-query": "^3.34.7",
     "yup": "^0.32.11"
@@ -46,6 +48,7 @@
     "eslint-config-next": "^12.0.7",
     "faker": "^5.5.3",
     "jest": "^27.4.7",
+    "mockdate": "^3.0.5",
     "postcss": "^8.4.5",
     "prisma": "^3.7.0",
     "start-server-and-test": "^1.14.0",
